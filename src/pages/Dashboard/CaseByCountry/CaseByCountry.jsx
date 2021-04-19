@@ -60,6 +60,8 @@ const Container = styled.div`
   background-color: var(--black);
   border-radius: 0.5rem;
   width: 100%;
+  height: 800px;
+
   padding: 1rem;
 `;
 
@@ -74,9 +76,8 @@ const Ul = styled.ul`
   list-style: none;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  height: 600px;
   overflow-y: scroll;
-
+  height: 87%;
   ::-webkit-scrollbar {
     width: 8px;
   }

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Cards from './GlobaalCases/Cards';
 import SelectList from './GlobaalCases/SelectList';
 import CaseByCountry from './CaseByCountry/CaseByCountry';
+import Table from './Table/Table';
 const Dashboard = () => {
   return (
     <>
@@ -18,6 +19,7 @@ const Dashboard = () => {
         </CardsSection>
         <TableSection>
           <CaseByCountry />
+          <Table />
         </TableSection>
       </Container>
     </>
@@ -35,6 +37,8 @@ const CardsSection = styled.section`
   margin-bottom: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+
   width: 100%;
 `;
 const TableSection = styled.section`
@@ -43,11 +47,11 @@ const TableSection = styled.section`
   display: grid;
   grid-template-columns: 2fr 6fr;
   width: 100%;
+  grid-gap: 1rem;
 `;
 
 const Map = styled.div`
   background-color: orange;
-  margin-left: 1rem;
 `;
 
 export default Dashboard;

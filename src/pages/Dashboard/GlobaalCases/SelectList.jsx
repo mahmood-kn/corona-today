@@ -130,7 +130,7 @@ const Li = styled.li`
 `;
 
 const Search = styled.input.attrs((props) => ({
-  type: 'text',
+  type: 'search',
 }))`
   padding: 0.3rem;
   width: 95%;
