@@ -3,20 +3,26 @@ import styled from 'styled-components';
 import redImg from '../../../assets/img/corona-icon-red.png';
 import greenImg from '../../../assets/img/corona-icon-green.png';
 import { numberWithCommas } from '../../../utils/funcs';
+import { useSelector } from 'react-redux';
 
 const DetailsCard = ({ text, data, green, change }) => {
+  const loading = useSelector((state) => state.loading);
   return (
     <Card>
       <CardImg src={green ? greenImg : redImg} />
       <div>
         <CardHeader>{text}</CardHeader>
-        <CardContent>
-          {numberWithCommas(data)}
-          <Change>
-            ({change > 0 ? '+' : change < 0 ? '-' : ''}
-            {numberWithCommas(change)})
-          </Change>
-        </CardContent>
+        {!loading && data && change ? (
+          <CardContent>
+            {numberWithCommas(data)}
+            <Change>
+              ({change > 0 ? '+' : change < 0 ? '-' : ''}
+              {numberWithCommas(change)})
+            </Change>
+          </CardContent>
+        ) : (
+          <h3>Loading...</h3>
+        )}
       </div>
     </Card>
   );
