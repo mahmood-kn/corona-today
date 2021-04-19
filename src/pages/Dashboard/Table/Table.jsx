@@ -52,7 +52,7 @@ const Container = styled.div`
 const SearchBox = styled.div`
   display: flex;
   color: #ccc;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   margin: 2rem 0 0.5rem;
 `;

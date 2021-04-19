@@ -1,15 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
 import redImg from '../../../assets/img/corona-icon-red.png';
+import greenImg from '../../../assets/img/corona-icon-green.png';
+import { numberWithCommas } from '../../../utils/funcs';
 
-const DetailsCard = () => {
+const DetailsCard = ({ text, data, green, change }) => {
   return (
     <Card>
-      <CardImg src={redImg} />
+      <CardImg src={green ? greenImg : redImg} />
       <div>
-        <CardHeader>Coronavirus Casses</CardHeader>
+        <CardHeader>{text}</CardHeader>
         <CardContent>
-          140,568,785 <Change>(+12,020)</Change>
+          {numberWithCommas(data)}
+          <Change>
+            ({change > 0 ? '+' : change < 0 ? '-' : ''}
+            {numberWithCommas(change)})
+          </Change>
         </CardContent>
       </div>
     </Card>
@@ -39,6 +45,7 @@ const CardContent = styled.h1`
 
 const Change = styled.span`
   font-size: 0.6em;
+  display: inline-block;
 `;
 
 const CardHeader = styled.h3`

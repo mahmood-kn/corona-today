@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
 import styled from 'styled-components';
 import Cards from './GlobaalCases/Cards';
 import SelectList from './GlobaalCases/SelectList';
 import CaseByCountry from './CaseByCountry/CaseByCountry';
 import Table from './Table/Table';
+import { useDispatch } from 'react-redux';
+import { getAll, getYesterday } from '../../store/actions/mainAction';
 const Dashboard = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAll());
+    dispatch(getYesterday());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <>
       <Navbar />

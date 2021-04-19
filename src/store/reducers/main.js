@@ -2,6 +2,7 @@ import * as types from '../actions/types';
 
 const initialState = {
   all: null,
+  yesterday: null,
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -10,6 +11,11 @@ const mainReducer = (state = initialState, action) => {
       return {
         ...state,
         all: action.payload,
+      };
+    case types.GET_YESTERDAY_DATA:
+      return {
+        ...state,
+        yesterday: action.payload,
       };
     default:
       return state;

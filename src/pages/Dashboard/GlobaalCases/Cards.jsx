@@ -1,14 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 import DetailsCard from './DetailsCard';
+import { useSelector } from 'react-redux';
 
 const Cards = () => {
+  const all = useSelector((state) => state.all);
+  const yesterday = useSelector((state) => state.yesterday);
+
   return (
     <AllCards>
-      <DetailsCard />
-      <DetailsCard />
-      <DetailsCard />
-      <DetailsCard />
+      <DetailsCard
+        text='Coronavirus Cases'
+        data={all?.cases}
+        change={all?.cases - yesterday?.cases}
+      />
+      <DetailsCard
+        text='Total Recovered'
+        data={all?.recovered}
+        green
+        change={all?.recovered - yesterday?.recovered}
+      />
+      <DetailsCard
+        text='Total Death'
+        data={all?.deaths}
+        change={all?.deaths - yesterday?.deaths}
+      />
+      <DetailsCard
+        text='Active Cases'
+        data={all?.active}
+        change={all?.active - yesterday?.active}
+      />
     </AllCards>
   );
 };
