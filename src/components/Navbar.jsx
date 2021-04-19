@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <NavbarParent>
       <Container>
-        <Logo>
+        <Logo to='/'>
           <LogoImg src={logo} />
           <LogoText>CoronaToday</LogoText>
         </Logo>
@@ -21,7 +21,7 @@ const Navbar = () => {
 };
 
 const NavbarParent = styled.div`
-  background-color: #1d1c22;
+  background-color: var(--black);
   width: 100%;
   height: 70px;
 `;
@@ -35,9 +35,10 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Logo = styled.div`
+const Logo = styled(Link)`
   display: flex;
   align-items: center;
+  text-decoration: none;
 `;
 const LogoImg = styled.img`
   max-width: 60px;
@@ -55,8 +56,12 @@ const StyledLink = styled(Link)`
   margin: 0 1rem;
   font-weight: bold;
   transition: color ease-in 100ms;
+
   &:hover {
     color: orange;
+  }
+  &:last-child {
+    margin-right: 0;
   }
 `;
 
