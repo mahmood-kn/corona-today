@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import styled from 'styled-components';
 import Cards from './GlobaalCases/Cards';
 import SelectList from './GlobaalCases/SelectList';
-import CaseByCountry from './GlobaalCases/CaseByCountry';
+import CaseByCountry from './CaseByCountry/CaseByCountry';
 const Dashboard = () => {
   return (
     <>
