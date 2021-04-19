@@ -41,7 +41,7 @@ const TableSection = styled.section`
   margin-top: 5rem;
   margin-bottom: 3rem;
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 2fr 6fr;
   width: 100%;
 `;
 
