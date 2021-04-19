@@ -86,6 +86,4 @@ const TableEl = styled.table`
   }
 `;
 
-const Tr = styled.tr``;
-
 export default Table;
