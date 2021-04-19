@@ -1,4 +1,7 @@
-import { takeEvery } from 'redux-saga';
+import { takeEvery } from 'redux-saga/effects';
 import * as types from '../actions/types';
+import { getAllDataSaga } from './main';
 
-function* watchMain() {}
+export function* watchMain() {
+  yield takeEvery(types.INITIATE_GET_ALL_DATA, getAllDataSaga);
+}

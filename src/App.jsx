@@ -1,15 +1,14 @@
 import React, { useEffect } from 'react';
-import axios from './api/main';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Map from './pages/Map/Map';
 import { Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { getAll } from './store/actions/mainAction';
 
 const App = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
-    axios
-      .get('/all')
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+    dispatch(getAll());
   }, []);
   return (
     <>
