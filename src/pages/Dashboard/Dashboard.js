@@ -2,18 +2,22 @@ import React from 'react';
 import Navbar from '../../components/Navbar';
 import styled from 'styled-components';
 import DetailsCard from './GlobaalCases/DetailsCard';
+import SelectList from './GlobaalCases/SelectList';
 const Dashboard = () => {
   return (
     <>
       <Navbar />
       <Container>
         <Section>
-          <Cards>
-            <DetailsCard />
-            <DetailsCard />
-            <DetailsCard />
-            <DetailsCard />
-          </Cards>
+          <div>
+            <Cards>
+              <DetailsCard />
+              <DetailsCard />
+              <DetailsCard />
+              <DetailsCard />
+            </Cards>
+            <SelectList />
+          </div>
           <Map>Map here</Map>
         </Section>
       </Container>
@@ -33,20 +37,19 @@ const Container = styled.div`
 const Section = styled.section`
   margin-top: 5rem;
   margin-bottom: 3rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
 `;
 
 const Cards = styled.div`
   display: grid;
-  flex: 1;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 `;
 
 const Map = styled.div`
   background-color: orange;
-  flex: 1;
   margin-left: 1rem;
 `;
 
