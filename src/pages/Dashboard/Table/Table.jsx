@@ -9,28 +9,32 @@ const Table = () => {
         <Search />
       </SearchBox>
       <TableEl>
-        <tr>
-          <th>Region</th>
-          <th>Total Cases</th>
-          <th>New Cases</th>
-          <th>Total Deaths</th>
-          <th>Deaths %</th>
-          <th>New Deaths</th>
-          <th>Total Recovered</th>
-          <th>Recovered %</th>
-          <th>Active Cases</th>
-        </tr>
-        <tr>
-          <td>Afghanistan</td>
-          <td>56874</td>
-          <td>+105</td>
-          <td>5105</td>
-          <td>1.52%</td>
-          <td>+5</td>
-          <td>56841</td>
-          <td>96.15%</td>
-          <td>1256</td>
-        </tr>
+        <thead>
+          <tr>
+            <th>Region</th>
+            <th>Total Cases</th>
+            <th>New Cases</th>
+            <th>Total Deaths</th>
+            <th>Deaths %</th>
+            <th>New Deaths</th>
+            <th>Total Recovered</th>
+            <th>Recovered %</th>
+            <th>Active Cases</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Afghanistan</td>
+            <td>56874</td>
+            <td>+105</td>
+            <td>5105</td>
+            <td>1.52%</td>
+            <td>+5</td>
+            <td>56841</td>
+            <td>96.15%</td>
+            <td>1256</td>
+          </tr>
+        </tbody>
       </TableEl>
     </Container>
   );
