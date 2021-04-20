@@ -6,7 +6,12 @@ import { watchMain } from './sagas';
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware];
 
-const initialState = {};
+const initialState = {
+  all: null,
+  yesterday: null,
+  loading: true,
+  countries: null,
+};
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   mainReducer,

@@ -9,3 +9,7 @@ export const yesterdayData = async () => {
   const { data } = await axios.get('/all?yesterday=1');
   return data;
 };
+export const countries = async () => {
+  const { data } = await axios.get('/countries');
+  return data;
+};

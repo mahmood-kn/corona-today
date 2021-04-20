@@ -17,7 +17,7 @@ const DetailsCard = ({ text, data, green, change }) => {
             {numberWithCommas(data)}
             <Change>
               ({change > 0 ? '+' : change < 0 ? '-' : ''}
-              {numberWithCommas(change)})
+              {numberWithCommas(Math.abs(change))})
             </Change>
           </CardContent>
         ) : (

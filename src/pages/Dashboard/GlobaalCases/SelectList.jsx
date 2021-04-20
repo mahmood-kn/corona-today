@@ -1,18 +1,36 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { numberWithCommas } from '../../../utils/funcs';
+import worldBlack from '../../../assets/img/world-black.png';
+import worldWhite from '../../../assets/img/world-white.png';
 
 const SelectList = () => {
   const [showDropDown, setShowDropDown] = useState(false);
+  const [selected, setSelected] = useState({
+    country: 'WorldWide',
+    flag: worldWhite,
+  });
   const searchRef = useRef();
+  const all = useSelector((state) => state.all);
+  const countries = useSelector((state) => state.countries);
+  const loading = useSelector((state) => state.loading);
   useEffect(() => {
     if (showDropDown) {
       searchRef.current.focus();
     }
-  }, [showDropDown]);
+  }, [showDropDown, countries]);
   const handleDropdown = () => {
     setShowDropDown(!showDropDown);
   };
-
+  const changeCountry = (e) => {
+    setShowDropDown(false);
+    setSelected({
+      country: e.target.dataset.country,
+      flag: e.target.dataset.flag,
+    });
+    console.log(e.target);
+  };
   return (
     <SelectContainer>
       <Head>
@@ -21,16 +39,32 @@ const SelectList = () => {
         </Heading>
         <DropDown>
           <DropDownBtn onClick={handleDropdown}>
-            WorldWide{' '}
+            <Flag src={selected.flag}></Flag>
+            {selected.country}
             {showDropDown ? <Arrow>&#9650;</Arrow> : <Arrow>&#9660;</Arrow>}
           </DropDownBtn>
           <DropDownContent show={showDropDown}>
             <Search ref={searchRef} />
             <Ul>
-              <Li>iran</Li>
-              <Li>iran</Li>
-              <Li>iran</Li>
-              <Li>iran</Li>
+              <Li
+                onClick={changeCountry}
+                data-country='WorldWide'
+                data-flag={worldWhite}>
+                <Flag src={worldBlack} />
+                WorldWide
+              </Li>
+              {!loading && countries
+                ? countries.map((c) => (
+                    <Li
+                      key={c.country}
+                      data-country={c.country}
+                      data-flag={c.countryInfo.flag}
+                      onClick={changeCountry}>
+                      <Flag src={c.countryInfo.flag} />
+                      {c.country}
+                    </Li>
+                  ))
+                : null}
             </Ul>
           </DropDownContent>
         </DropDown>
@@ -38,15 +72,33 @@ const SelectList = () => {
       <Statistics>
         <Confirmed>
           <ConfirmedH>Confirmed</ConfirmedH>
-          <ConfirmedB>145,588</ConfirmedB>
+          <ConfirmedB>
+            {!loading && all.cases ? (
+              numberWithCommas(all?.cases)
+            ) : (
+              <Loading>Loading...</Loading>
+            )}
+          </ConfirmedB>
         </Confirmed>
         <Death>
           <DeathH>Death</DeathH>
-          <DeathB>145,588</DeathB>
+          <DeathB>
+            {!loading && all.deaths ? (
+              numberWithCommas(all?.deaths)
+            ) : (
+              <Loading>Loading...</Loading>
+            )}
+          </DeathB>
         </Death>
         <Recovered>
           <RecoveredH>Recovered</RecoveredH>
-          <RecoveredB>145,588</RecoveredB>
+          <RecoveredB>
+            {!loading && all.recovered ? (
+              numberWithCommas(all?.recovered)
+            ) : (
+              <Loading>Loading...</Loading>
+            )}
+          </RecoveredB>
         </Recovered>
       </Statistics>
     </SelectContainer>
@@ -83,7 +135,7 @@ const Updated = styled.span`
 const DropDown = styled.div`
   position: relative;
   display: inline-block;
-  width: 10rem;
+  width: 12rem;
 `;
 
 const DropDownBtn = styled.button`
@@ -114,7 +166,7 @@ const DropDownContent = styled.div.attrs((props) => ({
 
 const Ul = styled.ul`
   min-width: 100%;
-  height: 150px;
+  height: 180px;
   overflow-y: scroll;
 `;
 
@@ -123,10 +175,17 @@ const Li = styled.li`
   font-size: 1.1em;
   padding: 0.4rem 0.7rem;
   cursor: pointer;
+  display: flex;
   &:hover {
     background-color: #5897fb;
     color: #fff;
   }
+`;
+
+const Flag = styled.img`
+  width: 30px;
+  margin-right: 0.5rem;
+  height: 100%;
 `;
 
 const Search = styled.input.attrs((props) => ({
@@ -196,5 +255,7 @@ const RecoveredB = styled.h2`
   font-weight: normal;
   font-size: 1.7em;
 `;
-
+const Loading = styled.span`
+  font-size: 0.6em;
+`;
 export default SelectList;

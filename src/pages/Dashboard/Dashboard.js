@@ -6,12 +6,13 @@ import SelectList from './GlobaalCases/SelectList';
 import CaseByCountry from './CaseByCountry/CaseByCountry';
 import Table from './Table/Table';
 import { useDispatch } from 'react-redux';
-import { getAll, getYesterday } from '../../store/actions/mainAction';
+import * as actions from '../../store/actions/mainAction';
 const Dashboard = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAll());
-    dispatch(getYesterday());
+    dispatch(actions.getAll());
+    dispatch(actions.getYesterday());
+    dispatch(actions.getCountries());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

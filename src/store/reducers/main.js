@@ -1,12 +1,12 @@
 import * as types from '../actions/types';
 
-const initialState = {
-  all: null,
-  yesterday: null,
-  loading: true,
-};
+// const initialState = {
+//   all: {},
+//   yesterday: {},
+//   loading: true,
+// };
 
-const mainReducer = (state = initialState, action) => {
+const mainReducer = (state, action) => {
   switch (action.type) {
     case types.SET_ALL_DATA:
       return {
@@ -19,6 +19,17 @@ const mainReducer = (state = initialState, action) => {
         ...state,
         yesterday: action.payload,
         loading: false,
+      };
+    case types.SET_COUNTRIES:
+      return {
+        ...state,
+        countries: action.payload,
+        loading: false,
+      };
+    case types.SET_LOADING:
+      return {
+        ...state,
+        loading: true,
       };
     default:
       return state;

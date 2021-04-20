@@ -2,3 +2,6 @@ export const GET_ALL_DATA = 'GET_ALL_DATA';
 export const SET_ALL_DATA = 'SET_ALL_DATA';
 export const GET_YESTERDAY_DATA = 'GET_YESTERDAY_DATA';
 export const SET_YESTERDAY_DATA = 'SET_YESTERDAY_DATA';
+export const SET_LOADING = 'SET_LOADING';
+export const GET_COUNTRIES = 'GET_COUNTRIES';
+export const SET_COUNTRIES = 'SET_COUNTRIES';

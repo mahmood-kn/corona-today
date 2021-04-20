@@ -14,3 +14,13 @@ export const setYesterday = (data) => ({
   type: types.SET_YESTERDAY_DATA,
   payload: data,
 });
+export const getCountries = () => ({
+  type: types.GET_COUNTRIES,
+});
+export const setCountries = (data) => ({
+  type: types.SET_COUNTRIES,
+  payload: data,
+});
+export const setLoading = (data) => ({
+  type: types.SET_LOADING,
+});
