@@ -1,12 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import DropDown from './DropDown';
+import { useSelector } from 'react-redux';
 
 const SelectListHead = () => {
+  const selectedData = useSelector((state) => state.selectedData);
+
   return (
     <Head>
       <Heading>
-        COVID-19 <Updated>Updated 5 mins ago</Updated>
+        COVID-19{' '}
+        <Updated>
+          Updated{' '}
+          {selectedData !== null &&
+            Math.floor(
+              (new Date().getTime() - selectedData.updated) / 60000
+            )}{' '}
+          mins ago
+        </Updated>
       </Heading>
       <DropDown />
     </Head>

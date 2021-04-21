@@ -2,8 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import logo from '../assets/img/logo.png';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { formatedDate } from 'utils/funcs';
 
 const Navbar = () => {
+  const all = useSelector((state) => state.all);
   return (
     <NavbarParent>
       <Container>
@@ -11,6 +14,7 @@ const Navbar = () => {
           <LogoImg src={logo} />
           <LogoText>CoronaToday</LogoText>
         </Logo>
+        <Updated>Update: {all !== null && formatedDate(all.updated)}</Updated>
         <div>
           <StyledLink to='/'>Dashboard</StyledLink>
           <StyledLink to='/map'>Map</StyledLink>
@@ -63,6 +67,12 @@ const StyledLink = styled(Link)`
   &:last-child {
     margin-right: 0;
   }
+`;
+
+const Updated = styled.span`
+  font-style: italic;
+  color: #fff;
+  font-size: 0.9em;
 `;
 
 export default Navbar;
