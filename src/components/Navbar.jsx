@@ -14,7 +14,9 @@ const Navbar = () => {
           <LogoImg src={logo} />
           <LogoText>CoronaToday</LogoText>
         </Logo>
-        <Updated>Update: {all !== null && formatedDate(all.updated)}</Updated>
+        <Updated>
+          {all !== null && `Update: ${formatedDate(all.updated)}`}
+        </Updated>
         <div>
           <StyledLink to='/'>Dashboard</StyledLink>
           <StyledLink to='/map'>Map</StyledLink>
