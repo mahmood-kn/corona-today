@@ -1,7 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import Country from './Country';
 import worldBlack from '../../../assets/img/world-black.png';
+import Flag from './Flag';
 
 const CountriesList = ({ onClick, countries, loading }) => {
   return (
@@ -25,11 +25,5 @@ const CountriesList = ({ onClick, countries, loading }) => {
     </>
   );
 };
-
-const Flag = styled.img`
-  width: 30px;
-  margin-right: 0.5rem;
-  height: 100%;
-`;
 
 export default CountriesList;

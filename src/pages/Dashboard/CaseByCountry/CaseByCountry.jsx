@@ -1,56 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 const CaseByCountry = () => {
+  const countries = useSelector((state) => state.countries);
+  const loading = useSelector((state) => state.loading);
   return (
     <Container>
       <Head>Cases by Country</Head>
       <Ul>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
-        <Li>
-          Iran <span>1,250</span>
-        </Li>
+        {!loading && countries !== null
+          ? countries.map((c) => (
+              <Li key={c.country}>
+                {c.country}
+                <span>{c.cases}</span>
+              </Li>
+            ))
+          : null}
       </Ul>
     </Container>
   );

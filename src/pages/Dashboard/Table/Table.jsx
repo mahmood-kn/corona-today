@@ -1,7 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import Flag from '../GlobaalCases/Flag';
 
 const Table = () => {
+  const countries = useSelector((state) => state.countries);
+  const loading = useSelector((state) => state.loading);
   return (
     <Container>
       <SearchBox>
@@ -23,17 +27,31 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Afghanistan</td>
-            <td>56874</td>
-            <td>+105</td>
-            <td>5105</td>
-            <td>1.52%</td>
-            <td>+5</td>
-            <td>56841</td>
-            <td>96.15%</td>
-            <td>1256</td>
-          </tr>
+          {!loading && countries !== null
+            ? countries.map((c) => (
+                <tr key={c.country}>
+                  <RegionTd>
+                    <Flag src={c.countryInfo.flag} />
+                    {c.country}
+                  </RegionTd>
+                  <td>{c.cases}</td>
+                  <td>{c.todayCases > 0 ? `+${c.todayCases}` : '0'}</td>
+                  <td>{c.deaths}</td>
+                  <td>
+                    {(100 - ((c.cases - c.deaths) / c.cases) * 100).toFixed(2)}%
+                  </td>
+                  <td>{c.todayDeaths > 0 ? `+${c.todayDeaths}` : '0'}</td>
+                  <td>{c.recovered}</td>
+                  <td>
+                    {(100 - ((c.cases - c.recovered) / c.cases) * 100).toFixed(
+                      2
+                    )}
+                    %
+                  </td>
+                  <td>{c.active}</td>
+                </tr>
+              ))
+            : null}
         </tbody>
       </TableEl>
     </Container>
@@ -88,6 +106,10 @@ const TableEl = styled.table`
     white-space: nowrap;
     padding: 1rem;
   }
+`;
+
+const RegionTd = styled.td`
+  display: flex;
 `;
 
 export default Table;

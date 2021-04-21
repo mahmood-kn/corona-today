@@ -3,7 +3,11 @@ import styled from 'styled-components';
 
 const Country = ({ children, onClick, country, flag }) => {
   return (
-    <Li data-country={country} data-flag={flag} onClick={onClick}>
+    <Li
+      data-country={country}
+      data-flag={flag}
+      onClick={onClick}
+      className='DropDown'>
       {children}
     </Li>
   );

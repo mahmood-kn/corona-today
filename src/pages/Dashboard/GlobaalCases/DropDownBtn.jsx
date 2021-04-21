@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../../store/actions/mainAction';
 import worldWhite from '../../../assets/img/world-white.png';
+import Flag from './Flag';
 
 const DropDownBtn = () => {
   const showDropDown = useSelector((state) => state.showDropDown);
@@ -13,14 +14,18 @@ const DropDownBtn = () => {
     dispatch(actions.setShowDropDown());
   };
   return (
-    <StyledDropDownBtn onClick={handleDropdown}>
+    <StyledDropDownBtn onClick={handleDropdown} className='DropDown'>
       {selectedCountry === 'WorldWide' ? (
         <Flag src={worldWhite} />
       ) : (
         <Flag src={selectedData.countryInfo.flag} />
       )}
       {selectedCountry}
-      {showDropDown ? <Arrow>&#9650;</Arrow> : <Arrow>&#9660;</Arrow>}
+      {showDropDown ? (
+        <Arrow className='DropDown'>&#9650;</Arrow>
+      ) : (
+        <Arrow className='DropDown'>&#9660;</Arrow>
+      )}
     </StyledDropDownBtn>
   );
 };
@@ -41,11 +46,6 @@ const StyledDropDownBtn = styled.button`
 
 const Arrow = styled.span`
   font-size: 0.7em;
-`;
-const Flag = styled.img`
-  width: 30px;
-  margin-right: 0.5rem;
-  height: 100%;
 `;
 
 export default DropDownBtn;

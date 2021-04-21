@@ -1,39 +1,50 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import CountriesList from './CountriesList';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
+import Search from './Search';
 import * as actions from '../../../store/actions/mainAction';
 
 const DropDownContent = () => {
-  // const [selected, setSelected] = useState({
-  //   country: 'WorldWide',
-  //   flag: worldWhite,
-  // });
   const loading = useSelector((state) => state.loading);
-  const searchRef = useRef();
   const countries = useSelector((state) => state.countries);
   const showDropDown = useSelector((state) => state.showDropDown);
   const dispatch = useDispatch();
+  // useEffect(() => {
+  //   window.addEventListener('click', (e) => {
+  //     console.log(
+  //       showDropDown && !e.target.classList.contains('DropDown'),
+  //       'both'
+  //     );
+  //     console.log(showDropDown, 'show');
+  //     console.log(!e.target.classList.contains('DropDown'), 'class');
+  //     if (showDropDown && !e.target.classList.contains('DropDown')) {
+  //       dispatch(actions.setShowDropDown());
+  //     }
+  //   });
+  //   return () => {
+  //     window.removeEventListener('click', (e) => {
+  //       if (showDropDown && !e.target.classList.contains('DropDown')) {
+  //         dispatch(actions.setShowDropDown());
+  //       }
+  //     });
+  //   };
+  // }, []);
+
+  //do an transparent overlay for dropdown
 
   const changeCountry = (e) => {
     dispatch(actions.setShowDropDown());
-    // setSelected({
-    //   country: e.target.dataset.country,
-    //   flag: e.target.dataset.flag,
-    // });
+
     const selected = countries.filter(
       (c) => c.country === e.target.dataset.country && c
     );
     dispatch(actions.setSelected(selected));
   };
-  useEffect(() => {
-    if (showDropDown) {
-      searchRef.current.focus();
-    }
-  }, [showDropDown, countries]);
+
   return (
-    <StyledDropDownContent show={showDropDown}>
-      <Search ref={searchRef} />
+    <StyledDropDownContent show={showDropDown} className='DropDown'>
+      <Search showDropDown={showDropDown} />
       <Ul>
         <CountriesList
           countries={countries}
@@ -61,16 +72,6 @@ const Ul = styled.ul`
   min-width: 100%;
   height: 180px;
   overflow-y: scroll;
-`;
-
-const Search = styled.input.attrs((props) => ({
-  type: 'search',
-}))`
-  padding: 0.3rem;
-  width: 95%;
-  font-size: 1.1em;
-
-  margin: 0.2rem;
 `;
 
 export default DropDownContent;
