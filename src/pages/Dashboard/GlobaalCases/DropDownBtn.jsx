@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../../../store/actions/mainAction';
-import worldWhite from '../../../assets/img/world-white.png';
+import * as actions from 'store/actions/mainAction';
+import worldWhite from 'assets/img/world-white.png';
 import Flag from './Flag';
 
 const DropDownBtn = () => {

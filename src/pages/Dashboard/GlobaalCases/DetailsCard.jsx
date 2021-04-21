@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import redImg from '../../../assets/img/corona-icon-red.png';
-import greenImg from '../../../assets/img/corona-icon-green.png';
-import { numberWithCommas } from '../../../utils/funcs';
+import redImg from 'assets/img/corona-icon-red.png';
+import greenImg from 'assets/img/corona-icon-green.png';
+import { numberWithCommas } from 'utils/funcs';
 import { useSelector } from 'react-redux';
 
 const DetailsCard = ({ text, data, green, change }) => {

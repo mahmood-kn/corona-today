@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { numberWithCommas } from '../../../utils/funcs';
+import { numberWithCommas } from 'utils/funcs';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../../store/actions/mainAction';
+import * as actions from 'store/actions/mainAction';
 
 const SelectListBody = () => {
   const all = useSelector((state) => state.all);

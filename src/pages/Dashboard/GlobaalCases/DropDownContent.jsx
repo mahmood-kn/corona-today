@@ -3,7 +3,7 @@ import CountriesList from './CountriesList';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import Search from './Search';
-import * as actions from '../../../store/actions/mainAction';
+import * as actions from 'store/actions/mainAction';
 
 const DropDownContent = () => {
   const loading = useSelector((state) => state.loading);
