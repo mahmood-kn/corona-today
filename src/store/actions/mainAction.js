@@ -21,6 +21,13 @@ export const setCountries = (data) => ({
   type: types.SET_COUNTRIES,
   payload: data,
 });
-export const setLoading = (data) => ({
+export const setSelected = (data) => ({
+  type: types.SET_SELECTED,
+  payload: data,
+});
+export const setShowDropDown = () => ({
+  type: types.SET_SHOW_DROP_DOWN,
+});
+export const setLoading = () => ({
   type: types.SET_LOADING,
 });

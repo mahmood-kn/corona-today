@@ -31,6 +31,18 @@ const mainReducer = (state, action) => {
         ...state,
         loading: true,
       };
+    case types.SET_SHOW_DROP_DOWN:
+      return {
+        ...state,
+        showDropDown: !state.showDropDown,
+      };
+    case types.SET_SELECTED:
+      return {
+        ...state,
+        selectedData: action.payload.length > 0 ? action.payload[0] : state.all,
+        selectedCountry:
+          action.payload.length > 0 ? action.payload[0].country : 'WorldWide',
+      };
     default:
       return state;
   }
