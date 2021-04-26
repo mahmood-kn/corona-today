@@ -25,6 +25,10 @@ export const setSelected = (data) => ({
   type: types.SET_SELECTED,
   payload: data,
 });
+export const setFilteredDropdown = (data) => ({
+  type: types.SET_FILTERED_DROPDOWN,
+  payload: data,
+});
 export const setShowDropDown = () => ({
   type: types.SET_SHOW_DROP_DOWN,
 });

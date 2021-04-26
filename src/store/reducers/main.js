@@ -43,6 +43,11 @@ const mainReducer = (state, action) => {
         selectedCountry:
           action.payload.length > 0 ? action.payload[0].country : 'WorldWide',
       };
+    case types.SET_FILTERED_DROPDOWN:
+      return {
+        ...state,
+        filteredDropdown: action.payload,
+      };
     default:
       return state;
   }

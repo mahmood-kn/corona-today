@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import SelectListHead from './SelectListHeadDefault';
-import SelectListBodyDefault from './SelectListBody';
+import SelectListHead from './SelectListHead';
+import SelectListBody from './SelectListBody';
 
 const SelectList = () => {
   return (
     <SelectContainer>
       <SelectListHead />
-      <SelectListBodyDefault />
+      <SelectListBody />
     </SelectContainer>
   );
 };

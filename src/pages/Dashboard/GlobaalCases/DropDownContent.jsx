@@ -9,6 +9,8 @@ const DropDownContent = () => {
   const loading = useSelector((state) => state.loading);
   const countries = useSelector((state) => state.countries);
   const showDropDown = useSelector((state) => state.showDropDown);
+  const filteredDropdown = useSelector((state) => state.filteredDropdown);
+
   const dispatch = useDispatch();
   // useEffect(() => {
   //   window.addEventListener('click', (e) => {
@@ -36,7 +38,7 @@ const DropDownContent = () => {
   const changeCountry = (e) => {
     dispatch(actions.setShowDropDown());
 
-    const selected = countries.filter(
+    const selected = filteredDropdown.filter(
       (c) => c.country === e.target.dataset.country && c
     );
     dispatch(actions.setSelected(selected));
@@ -47,7 +49,7 @@ const DropDownContent = () => {
       <Search showDropDown={showDropDown} />
       <Ul>
         <CountriesList
-          countries={countries}
+          countries={filteredDropdown}
           laoding={loading}
           onClick={changeCountry}
         />

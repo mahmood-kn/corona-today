@@ -14,6 +14,7 @@ const initialState = {
   showDropDown: false,
   selectedCountry: 'WorldWide',
   selectedData: null,
+  filteredDropdown: null,
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
