@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
 import PageList from './PageList';
 
 const Pagination = ({ first, last, total }) => {
-  const countries = useSelector((state) => state.countries);
   return (
     <StyledPagination>
       <Showing>

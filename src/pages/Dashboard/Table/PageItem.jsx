@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const PaginationItem = ({ children, onClick, disabled, currPage }) => {
-  useEffect(() => {
-    console.log(currPage);
-  }, []);
   return (
     <PageNumber disabled={disabled} onClick={onClick} currPage={currPage}>
       {children}

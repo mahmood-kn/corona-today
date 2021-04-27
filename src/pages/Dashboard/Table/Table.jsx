@@ -26,6 +26,7 @@ const Table = () => {
       );
       dispatch(actions.setCurrItem(buildCurrentItems));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [countries, currPage]);
   return (
     <Container>
