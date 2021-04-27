@@ -28,7 +28,6 @@ const Search = ({ showDropDown }) => {
     const filteredData = countries.filter(
       (c) => c.country.toLowerCase().includes(data) && c.country
     );
-    // console.log(filteredData);
     dispatch(actions.setFilteredDropdown(filteredData));
   };
 

@@ -29,6 +29,14 @@ export const setFilteredDropdown = (data) => ({
   type: types.SET_FILTERED_DROPDOWN,
   payload: data,
 });
+export const setCurrItem = (data) => ({
+  type: types.SET_CURR_ITEMS,
+  payload: data,
+});
+export const changeCurrPage = (data) => ({
+  type: types.CHANGE_CURR_PAGE,
+  payload: data,
+});
 export const setShowDropDown = () => ({
   type: types.SET_SHOW_DROP_DOWN,
 });

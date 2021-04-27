@@ -15,6 +15,9 @@ const initialState = {
   selectedCountry: 'WorldWide',
   selectedData: null,
   filteredDropdown: null,
+  currPage: 1,
+  itemPerPage: 10,
+  currentItems: null,
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

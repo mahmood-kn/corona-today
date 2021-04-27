@@ -7,7 +7,6 @@ import * as actions from 'store/actions/mainAction';
 
 const DropDownContent = () => {
   const loading = useSelector((state) => state.loading);
-  const countries = useSelector((state) => state.countries);
   const showDropDown = useSelector((state) => state.showDropDown);
   const filteredDropdown = useSelector((state) => state.filteredDropdown);
 

@@ -1,11 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Flag from '../GlobaalCases/Flag';
+import Pagination from './Pagination';
+import * as actions from 'store/actions/mainAction';
 
 const Table = () => {
   const countries = useSelector((state) => state.countries);
   const loading = useSelector((state) => state.loading);
+  const currPage = useSelector((state) => state.currPage);
+  const itemPerPage = useSelector((state) => state.itemPerPage);
+  const currentItems = useSelector((state) => state.currentItems);
+  const [last, setLast] = useState('');
+  const [first, setFirst] = useState('');
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (countries !== null) {
+      const indexOfLastItem = currPage * itemPerPage;
+      const indexOfFirstItem = indexOfLastItem - itemPerPage;
+      setLast(currPage * itemPerPage);
+      setFirst(indexOfLastItem - itemPerPage);
+      const buildCurrentItems = countries.slice(
+        indexOfFirstItem,
+        indexOfLastItem
+      );
+      dispatch(actions.setCurrItem(buildCurrentItems));
+    }
+  }, [countries, currPage]);
   return (
     <Container>
       <SearchBox>
@@ -27,8 +48,8 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {!loading && countries !== null
-            ? countries.map((c) => (
+          {!loading && currentItems !== null
+            ? currentItems.map((c) => (
                 <tr key={c.country}>
                   <RegionTd>
                     <Flag src={c.countryInfo.flag} />
@@ -54,6 +75,7 @@ const Table = () => {
             : null}
         </tbody>
       </TableEl>
+      <Pagination first={first} last={last} total={countries?.length} />
     </Container>
   );
 };
@@ -110,6 +132,8 @@ const TableEl = styled.table`
 
 const RegionTd = styled.td`
   display: flex;
+  align-items: center;
+  white-space: nowrap;
 `;
 
 export default Table;
