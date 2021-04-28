@@ -1,0 +1,66 @@
+.PaginationContainer {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  color: #fff;
+}
+
+.PageLink:hover {
+  background-color: black;
+  border-color: black;
+}
+
+.ArrowBtn {
+  display: grid;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  border-radius: 2px;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  margin: 0 0.3rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+.ArrowBtn:hover {
+  background-color: black;
+  border-color: black;
+}
+.Active a {
+  background-color: black;
+  border-color: black;
+}
+
+.ArrowBtnDisabled,
+.ArrowBtnDisabled:hover {
+  background-color: transparent;
+  border-color: #666;
+  color: #666;
+  cursor: not-allowed;
+}
+.NextArrowBtnDisabled {
+  background-color: transparent;
+  border: 1px solid #666;
+  color: #666;
+  cursor: not-allowed;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  display: grid;
+  border-radius: 2px;
+}
+
+.PageLink {
+  box-sizing: border-box;
+  display: grid;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  border-radius: 2px;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  margin: 0 0.3rem;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
