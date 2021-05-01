@@ -29,6 +29,10 @@ export const setFilteredDropdown = (data) => ({
   type: types.SET_FILTERED_DROPDOWN,
   payload: data,
 });
+export const setFilteredTable = (data) => ({
+  type: types.SET_FILTERED_TABLE,
+  payload: data,
+});
 export const setCurrItem = (data) => ({
   type: types.SET_CURR_ITEMS,
   payload: data,

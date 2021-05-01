@@ -48,6 +48,12 @@ const mainReducer = (state, action) => {
         ...state,
         filteredDropdown: action.payload,
       };
+    case types.SET_FILTERED_TABLE:
+      return {
+        ...state,
+        filteredTable: action.payload,
+        currPage: 1,
+      };
     case types.SET_CURR_ITEMS:
       return {
         ...state,

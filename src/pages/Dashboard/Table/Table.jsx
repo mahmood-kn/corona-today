@@ -4,9 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import Flag from '../GlobaalCases/Flag';
 import Pagination from './Pagination';
 import * as actions from 'store/actions/mainAction';
+import Search from './Search';
 
 const Table = () => {
   const countries = useSelector((state) => state.countries);
+  const filteredTable = useSelector((state) => state.filteredTable);
   const loading = useSelector((state) => state.loading);
   const currPage = useSelector((state) => state.currPage);
   const itemPerPage = useSelector((state) => state.itemPerPage);
@@ -20,20 +22,19 @@ const Table = () => {
       const indexOfFirstItem = indexOfLastItem - itemPerPage;
       setLast(currPage * itemPerPage);
       setFirst(indexOfLastItem - itemPerPage);
-      const buildCurrentItems = countries.slice(
-        indexOfFirstItem,
-        indexOfLastItem
-      );
-      dispatch(actions.setCurrItem(buildCurrentItems));
+      if (filteredTable !== null) {
+        const buildCurrentItems = filteredTable.slice(
+          indexOfFirstItem,
+          indexOfLastItem
+        );
+        dispatch(actions.setCurrItem(buildCurrentItems));
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [countries, currPage]);
+  }, [countries, currPage, filteredTable]);
   return (
     <Container>
-      <SearchBox>
-        Search:
-        <Search />
-      </SearchBox>
+      <Search />
       <TableEl>
         <thead>
           <tr>
@@ -76,7 +77,7 @@ const Table = () => {
             : null}
         </tbody>
       </TableEl>
-      <Pagination first={first} last={last} total={countries?.length} />
+      <Pagination first={first} last={last} total={filteredTable?.length} />
     </Container>
   );
 };
@@ -85,29 +86,10 @@ const Container = styled.div`
   width: 100%;
   background-color: var(--black);
   border-radius: 0.5rem;
-  height: 800px;
-  position: relative;
+  max-height: 800px;
+  height: fit-content;
   overflow-x: scroll;
-`;
-
-const SearchBox = styled.div`
-  display: flex;
-  color: #ccc;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 2rem 0 0.5rem;
-`;
-
-const Search = styled.input.attrs((props) => ({
-  type: 'search',
-}))`
-  padding: 0.5rem;
-  background-color: #292833;
-  margin: 0 0.5rem;
-  display: block;
-  color: #ccc;
-  font-size: 1em;
-  border: none;
+  overflow-y: hidden;
 `;
 
 const TableEl = styled.table`

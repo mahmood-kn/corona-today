@@ -15,6 +15,7 @@ const initialState = {
   selectedCountry: 'WorldWide',
   selectedData: null,
   filteredDropdown: null,
+  filteredTable: null,
   currPage: 1,
   itemPerPage: 11,
   currentItems: null,

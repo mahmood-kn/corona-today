@@ -7,6 +7,7 @@ import classes from './Pagination.module.css';
 
 const Pagination = ({ first, last, total }) => {
   const countries = useSelector((state) => state.countries);
+  const filteredTable = useSelector((state) => state.filteredTable);
   const itemPerPage = useSelector((state) => state.itemPerPage);
   const currPage = useSelector((state) => state.currPage);
   const dispatch = useDispatch();
@@ -19,23 +20,28 @@ const Pagination = ({ first, last, total }) => {
   return (
     <StyledPagination>
       <Showing>
-        Showing {first + 1} to {last > total ? total : last} of {total} entries
+        Showing {first + 1} to {last > total ? total : last} of {total} entries{' '}
+        <FilteredText>
+          {filteredTable?.length !== countries?.length
+            ? `(filtered from ${countries?.length} total entries)`
+            : ''}
+        </FilteredText>
       </Showing>
       <ReactPaginate
-        pageCount={countries?.length / itemPerPage}
+        pageCount={filteredTable?.length / itemPerPage}
         pageRangeDisplayed={3}
         marginPagesDisplayed={1}
         onPageChange={(c) => handlePageClick(c)}
-        pageClassName={classes.PageItem}
         containerClassName={classes.PaginationContainer}
         previousLabel='<'
         nextLabel='>'
         previousClassName={classes.ArrowBtn}
         nextClassName={
-          currPage === Math.ceil(countries?.length / itemPerPage)
+          currPage === Math.ceil(filteredTable?.length / itemPerPage)
             ? classes.NextArrowBtnDisabled
             : classes.ArrowBtn
         }
+        forcePage={currPage - 1}
         activeClassName={classes.Active}
         disabledClassName={classes.ArrowBtnDisabled}
         pageLinkClassName={classes.PageLink}
@@ -47,14 +53,18 @@ const Pagination = ({ first, last, total }) => {
 const StyledPagination = styled.div`
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 95%;
+  padding: 1rem;
+  width: 100%;
 `;
 
 const Showing = styled.h3`
   color: #fff;
+  font-weight: normal;
+`;
+
+const FilteredText = styled.span`
+  font-weight: normal;
+  font-size: 0.8em;
 `;
 
 export default Pagination;
