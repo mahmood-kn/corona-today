@@ -29,3 +29,15 @@ export function* countriesSaga() {
     console.log(err);
   }
 }
+export function* graphDeathsCountrySaga(action) {
+  try {
+    yield put(actions.setGraphLoading());
+    const data = yield reqs.graphDeathsCountry(
+      action.payload.country,
+      action.payload.duration
+    );
+    yield put(actions.setGraphDeathsCountry(data));
+  } catch (err) {
+    console.log(err);
+  }
+}

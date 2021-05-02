@@ -64,6 +64,17 @@ const mainReducer = (state, action) => {
         ...state,
         currPage: action.payload,
       };
+    case types.SET_GRAPH_DEATHS_COUNTRY:
+      return {
+        ...state,
+        graphDeathsCountry: action.payload,
+        graphLoading: false,
+      };
+    case types.SET_GRAPH_LOADING:
+      return {
+        ...state,
+        graphLoading: true,
+      };
     default:
       return state;
   }

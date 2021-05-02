@@ -7,5 +7,6 @@ export function* watchMain() {
     takeEvery(types.GET_ALL_DATA, sagas.getAllDataSaga),
     takeEvery(types.GET_YESTERDAY_DATA, sagas.yesterdaySaga),
     takeEvery(types.GET_COUNTRIES, sagas.countriesSaga),
+    takeEvery(types.GET_GRAPH_DEATHS_COUNTRY, sagas.graphDeathsCountrySaga),
   ]);
 }

@@ -13,3 +13,9 @@ export const countries = async () => {
   const { data } = await axios.get('/countries');
   return data;
 };
+export const graphDeathsCountry = async (country, duration) => {
+  const { data } = await axios.get(
+    `/historical/${country}?lastdays=${duration}`
+  );
+  return data;
+};

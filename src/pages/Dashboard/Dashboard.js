@@ -7,6 +7,8 @@ import CaseByCountry from './CaseByCountry/CaseByCountry';
 import Table from './Table/Table';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../store/actions/mainAction';
+import Charts from './Charts/Charts';
+
 const Dashboard = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -30,6 +32,7 @@ const Dashboard = () => {
           <CaseByCountry />
           <Table />
         </TableSection>
+        <Charts />
       </Container>
     </>
   );
