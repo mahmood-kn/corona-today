@@ -41,8 +41,9 @@ export const changeCurrPage = (data) => ({
   type: types.CHANGE_CURR_PAGE,
   payload: data,
 });
-export const setShowDropDown = () => ({
+export const setShowDropDown = (data) => ({
   type: types.SET_SHOW_DROP_DOWN,
+  payload: data,
 });
 export const setLoading = () => ({
   type: types.SET_LOADING,

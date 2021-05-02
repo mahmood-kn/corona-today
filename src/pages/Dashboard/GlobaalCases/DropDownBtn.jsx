@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from 'store/actions/mainAction';
-import worldWhite from 'assets/img/world-white.png';
 import Flag from './Flag';
+import WorldIcon from 'components/WorldIcon';
 
 const DropDownBtn = () => {
   const showDropDown = useSelector((state) => state.showDropDown);
@@ -11,12 +11,16 @@ const DropDownBtn = () => {
   const selectedData = useSelector((state) => state.selectedData);
   const dispatch = useDispatch();
   const handleDropdown = () => {
-    dispatch(actions.setShowDropDown());
+    if (showDropDown) {
+      dispatch(actions.setShowDropDown(false));
+    } else {
+      dispatch(actions.setShowDropDown(true));
+    }
   };
   return (
     <StyledDropDownBtn onClick={handleDropdown} className='DropDown'>
       {selectedCountry === 'WorldWide' ? (
-        <Flag src={worldWhite} />
+        <WorldIcon color='#fff' />
       ) : (
         <Flag src={selectedData.countryInfo.flag} />
       )}

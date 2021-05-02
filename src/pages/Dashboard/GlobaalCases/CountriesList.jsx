@@ -1,13 +1,13 @@
 import React from 'react';
 import Country from './Country';
-import worldBlack from 'assets/img/world-black.png';
+import WorldIcon from 'components/WorldIcon';
 import Flag from './Flag';
 
 const CountriesList = ({ onClick, countries, loading }) => {
   return (
     <>
       <Country onClick={onClick}>
-        <Flag src={worldBlack} />
+        <WorldIcon />
         WorldWide
       </Country>
       {!loading && countries !== null

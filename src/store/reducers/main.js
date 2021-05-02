@@ -34,7 +34,7 @@ const mainReducer = (state, action) => {
     case types.SET_SHOW_DROP_DOWN:
       return {
         ...state,
-        showDropDown: !state.showDropDown,
+        showDropDown: action.payload,
       };
     case types.SET_SELECTED:
       return {

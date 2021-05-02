@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CountriesList from './CountriesList';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
@@ -11,31 +11,9 @@ const DropDownContent = () => {
   const filteredDropdown = useSelector((state) => state.filteredDropdown);
 
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   window.addEventListener('click', (e) => {
-  //     console.log(
-  //       showDropDown && !e.target.classList.contains('DropDown'),
-  //       'both'
-  //     );
-  //     console.log(showDropDown, 'show');
-  //     console.log(!e.target.classList.contains('DropDown'), 'class');
-  //     if (showDropDown && !e.target.classList.contains('DropDown')) {
-  //       dispatch(actions.setShowDropDown());
-  //     }
-  //   });
-  //   return () => {
-  //     window.removeEventListener('click', (e) => {
-  //       if (showDropDown && !e.target.classList.contains('DropDown')) {
-  //         dispatch(actions.setShowDropDown());
-  //       }
-  //     });
-  //   };
-  // }, []);
-
-  //do an transparent overlay for dropdown
 
   const changeCountry = (e) => {
-    dispatch(actions.setShowDropDown());
+    dispatch(actions.setShowDropDown(false));
 
     const selected = filteredDropdown.filter(
       (c) => c.country === e.target.dataset.country && c
@@ -65,8 +43,9 @@ const StyledDropDownContent = styled.div.attrs((props) => ({
   background-color: #f6f6f6;
   min-width: inherit;
   border: 1px solid #ddd;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
+  border-radius: 0 0 0.3rem 0.3rem;
 `;
 
 const Ul = styled.ul`
