@@ -17,7 +17,7 @@ const Pie = () => {
     console.log(data);
     const ctx = chartRef.current.getContext('2d');
     const mychart = new Chart(ctx, {
-      type: 'pie',
+      type: 'doughnut',
       data: {
         labels: ['Deaths(%)', 'Recovered(%)'],
         datasets: [
@@ -27,7 +27,6 @@ const Pie = () => {
               ((data[0]?.deaths / data[0]?.cases) * 100).toFixed(1),
               ((data[0]?.recovered / data[0]?.cases) * 100).toFixed(1),
             ],
-            // data: [300, 50, 100],
             backgroundColor: ['rgb(255, 99, 132)', 'rgb(91, 194, 54)'],
             hoverOffset: 4,
           },
