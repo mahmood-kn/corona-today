@@ -19,8 +19,8 @@ const initialState = {
   currPage: 1,
   itemPerPage: 11,
   currentItems: null,
-  graphDeathsCountry: null,
-  deathsCountryDuration: 90,
+  timeSeriesCountryData: null,
+  timeSeriesCountryDuration: 60,
   graphLoading: false,
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

@@ -64,10 +64,10 @@ const mainReducer = (state, action) => {
         ...state,
         currPage: action.payload,
       };
-    case types.SET_GRAPH_DEATHS_COUNTRY:
+    case types.SET_TIME_SERIES_COUNTRY:
       return {
         ...state,
-        graphDeathsCountry: action.payload,
+        timeSeriesCountryData: action.payload,
         graphLoading: false,
       };
     case types.SET_GRAPH_LOADING:

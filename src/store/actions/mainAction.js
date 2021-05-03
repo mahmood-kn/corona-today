@@ -45,12 +45,12 @@ export const setShowDropDown = (data) => ({
   type: types.SET_SHOW_DROP_DOWN,
   payload: data,
 });
-export const getGraphDeathsCountry = (country, duration) => ({
-  type: types.GET_GRAPH_DEATHS_COUNTRY,
+export const getTimeSeriesCountryData = (country, duration) => ({
+  type: types.GET_TIME_SERIES_COUNTRY,
   payload: { country, duration },
 });
-export const setGraphDeathsCountry = (data) => ({
-  type: types.SET_GRAPH_DEATHS_COUNTRY,
+export const setTimeSeriesCountryData = (data) => ({
+  type: types.SET_TIME_SERIES_COUNTRY,
   payload: data,
 });
 export const setLoading = () => ({

@@ -32,11 +32,11 @@ export function* countriesSaga() {
 export function* graphDeathsCountrySaga(action) {
   try {
     yield put(actions.setGraphLoading());
-    const data = yield reqs.graphDeathsCountry(
+    const data = yield reqs.timeSeriesCountry(
       action.payload.country,
       action.payload.duration
     );
-    yield put(actions.setGraphDeathsCountry(data));
+    yield put(actions.setTimeSeriesCountryData(data));
   } catch (err) {
     console.log(err);
   }
