@@ -64,11 +64,21 @@ const mainReducer = (state, action) => {
         ...state,
         currPage: action.payload,
       };
+    case types.GET_TIME_SERIES_COUNTRY:
+      return {
+        ...state,
+        currCountryGraph: action.payload.country,
+      };
     case types.SET_TIME_SERIES_COUNTRY:
       return {
         ...state,
         timeSeriesCountryData: action.payload,
         graphLoading: false,
+      };
+    case types.SET_LINEAR_VIEW_DATA:
+      return {
+        ...state,
+        linearViewData: action.payload,
       };
     case types.SET_GRAPH_LOADING:
       return {

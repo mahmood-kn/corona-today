@@ -53,6 +53,10 @@ export const setTimeSeriesCountryData = (data) => ({
   type: types.SET_TIME_SERIES_COUNTRY,
   payload: data,
 });
+export const setLinearViewData = (data) => ({
+  type: types.SET_LINEAR_VIEW_DATA,
+  payload: data,
+});
 export const setLoading = () => ({
   type: types.SET_LOADING,
 });
