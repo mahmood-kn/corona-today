@@ -7,9 +7,7 @@ import * as actions from 'store/actions/mainAction';
 const LinearLastYear = () => {
   const chartRef = useRef();
   const countries = useSelector((state) => state.countries);
-  const timeSeriesCountryDuration = useSelector(
-    (state) => state.timeSeriesCountryDuration
-  );
+
   const timeSeriesCountryData = useSelector(
     (state) => state.timeSeriesCountryData
   );

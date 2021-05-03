@@ -20,7 +20,6 @@ const initialState = {
   itemPerPage: 11,
   currentItems: null,
   timeSeriesCountryData: null,
-  timeSeriesCountryDuration: 60,
   graphLoading: false,
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
