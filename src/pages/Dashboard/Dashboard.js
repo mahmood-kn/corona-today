@@ -8,6 +8,7 @@ import Table from './Table/Table';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../store/actions/mainAction';
 import Charts from './Charts/Charts';
+import Map from './Map/Map';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
@@ -26,7 +27,7 @@ const Dashboard = () => {
             <Cards />
             <SelectList />
           </div>
-          <Map>Map here</Map>
+          <Map />
         </CardsSection>
         <TableSection>
           <CaseByCountry />
@@ -60,10 +61,6 @@ const TableSection = styled.section`
   grid-template-columns: 2fr 6fr;
   width: 100%;
   grid-gap: 1rem;
-`;
-
-const Map = styled.div`
-  background-color: orange;
 `;
 
 export default Dashboard;
