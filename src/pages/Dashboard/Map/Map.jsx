@@ -72,15 +72,20 @@ const Header = styled.div`
   width: 100%;
   padding: 2rem;
   display: flex;
+  font-size: 1.3em;
+  font-weight: bold;
 `;
 const DetailsContainer = styled.div`
   display: flex;
+  font-weight: normal;
   align-items: center;
+  color: #b7b7b7;
+  font-size: 0.9em;
 `;
 const Details = styled.div`
   width: 20px;
   height: 20px;
-  margin: 0 1rem;
+  margin: 0 0.5rem 0 1.3rem;
   background-color: ${(props) => props.color};
 `;
 
