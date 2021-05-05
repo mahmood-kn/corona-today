@@ -38,6 +38,11 @@ const AllCards = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-content: center;
+  }
 `;
 
 export default Cards;

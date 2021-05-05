@@ -90,6 +90,9 @@ const Container = styled.div`
   height: fit-content;
   overflow-x: scroll;
   overflow-y: hidden;
+  @media only screen and (max-width: 600px) {
+    max-height: 830px;
+  }
 `;
 
 const TableEl = styled.table`

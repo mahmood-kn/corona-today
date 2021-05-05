@@ -43,8 +43,10 @@ const CardsSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
-
   width: 100%;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const TableSection = styled.section`
   margin-top: 5rem;
@@ -53,6 +55,9 @@ const TableSection = styled.section`
   grid-template-columns: 2fr 6fr;
   width: 100%;
   grid-gap: 1rem;
+  @media only screen and (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export default Dashboard;

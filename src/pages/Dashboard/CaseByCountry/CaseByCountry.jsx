@@ -27,8 +27,11 @@ const Container = styled.div`
   border-radius: 0.5rem;
   width: 100%;
   height: 800px;
-
   padding: 1rem;
+
+  @media only screen and (max-width: 600px) {
+    max-height: 500px;
+  }
 `;
 
 const Head = styled.h3`
@@ -44,6 +47,10 @@ const Ul = styled.ul`
   margin-bottom: 1rem;
   overflow-y: scroll;
   height: 87%;
+
+  @media only screen and (max-width: 600px) {
+    height: 77%;
+  }
   ::-webkit-scrollbar {
     width: 8px;
   }

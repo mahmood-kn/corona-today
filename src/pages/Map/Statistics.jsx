@@ -47,6 +47,10 @@ const Container = styled.div`
   align-items: center;
   height: calc(100vh - var(--navbarH));
   overflow-y: scroll;
+  @media only screen and (max-width: 600px) {
+    height: 100%;
+    order: 2;
+  }
 
   ::-webkit-scrollbar {
     width: 8px;

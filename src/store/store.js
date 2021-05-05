@@ -24,6 +24,7 @@ const initialState = {
   dataDays: 30,
   linearViewData: 'deaths',
   currCountryGraph: null,
+  openSideMenu: false,
 };
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

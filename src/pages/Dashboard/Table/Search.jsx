@@ -37,6 +37,10 @@ const SearchBox = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin: 2rem 0 0.5rem;
+  @media only screen and (max-width: 600px) {
+    justify-content: flex-start;
+    margin-left: 1rem;
+  }
 `;
 
 const StyledSearch = styled.input.attrs((props) => ({
@@ -49,6 +53,9 @@ const StyledSearch = styled.input.attrs((props) => ({
   color: #ccc;
   font-size: 1em;
   border: none;
+  @media only screen and (max-width: 600px) {
+    width: 60%;
+  }
 `;
 
 export default Search;

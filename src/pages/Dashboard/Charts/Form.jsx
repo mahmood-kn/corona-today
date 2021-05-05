@@ -79,6 +79,12 @@ const StyledForm = styled.form`
   display: flex;
   justify-content: space-around;
   margin: 1rem 0;
+  border-top: 1px solid #b7b7b7;
+  padding-top: 2rem;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 const InputContainer = styled.div`
   display: flex;
@@ -106,6 +112,10 @@ const Select = styled.select`
   & option {
     color: black;
     font-size: 1.1em;
+  }
+
+  @media only screen and (max-width: 600px) {
+    margin: 1rem 0;
   }
 `;
 const Btn = styled.button.attrs((props) => ({

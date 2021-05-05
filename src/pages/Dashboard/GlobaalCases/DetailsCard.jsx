@@ -15,6 +15,7 @@ const DetailsCard = ({ text, data, green, change }) => {
         {!loading && data && change ? (
           <CardContent>
             {numberWithCommas(data)}
+            <br />
             <Change>
               ({change > 0 ? '+' : change < 0 ? '-' : ''}
               {numberWithCommas(Math.abs(change))})
@@ -35,6 +36,7 @@ const Card = styled.div`
   align-items: center;
   background-color: var(--black);
   color: #ccc;
+  width: 100%;
   padding: 1.5rem;
 `;
 

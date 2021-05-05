@@ -67,6 +67,9 @@ const SimpleJs = () => {
 const Root = styled.div`
   background-color: var(--black);
   margin-left: 6rem;
+  @media only screen and (max-width: 600px) {
+    margin-left: 1rem;
+  }
 `;
 
 export default SimpleJs;

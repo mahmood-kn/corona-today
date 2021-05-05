@@ -58,6 +58,10 @@ const Linear = () => {
 };
 const Container = styled.div`
   margin: 0.5rem 0 2rem 0;
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
 
 const Title = styled.h4`
@@ -69,5 +73,7 @@ const Canvas = styled.canvas`
   background-color: var(--black);
   padding: 1rem;
   color: #fff;
+  width: 400px;
+  height: 400px;
 `;
 export default Linear;

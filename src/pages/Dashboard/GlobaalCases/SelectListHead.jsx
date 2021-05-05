@@ -29,6 +29,12 @@ const Head = styled.div`
   justify-content: space-around;
   padding: 2rem;
   border-bottom: 1px solid #fff;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const Heading = styled.h2`
@@ -42,6 +48,9 @@ const Updated = styled.span`
   font-size: 0.45em;
   margin-top: 0.5rem;
   font-weight: normal;
+  @media only screen and (max-width: 600px) {
+    margin: 1rem 0;
+  }
 `;
 
 export default SelectListHead;

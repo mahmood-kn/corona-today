@@ -46,7 +46,6 @@ const StyledSearch = styled.input.attrs((props) => ({
   padding: 0.3rem;
   width: 95%;
   font-size: 1.1em;
-
   margin: 0.2rem;
 `;
 export default Search;

@@ -29,7 +29,7 @@ const Pagination = ({ first, last, total }) => {
       </Showing>
       <ReactPaginate
         pageCount={filteredTable?.length / itemPerPage}
-        pageRangeDisplayed={3}
+        pageRangeDisplayed={window.innerWidth < 600 ? 1 : 3}
         marginPagesDisplayed={1}
         onPageChange={(c) => handlePageClick(c)}
         containerClassName={classes.PaginationContainer}
@@ -55,11 +55,18 @@ const StyledPagination = styled.div`
   justify-content: space-between;
   padding: 1rem;
   width: 100%;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const Showing = styled.h3`
   color: #fff;
   font-weight: normal;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 const FilteredText = styled.span`

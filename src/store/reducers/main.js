@@ -85,6 +85,11 @@ const mainReducer = (state, action) => {
         ...state,
         graphLoading: true,
       };
+    case types.OPEN_SIDE_MENU:
+      return {
+        ...state,
+        openSideMenu: action.payload,
+      };
     default:
       return state;
   }

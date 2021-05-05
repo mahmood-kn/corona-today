@@ -18,13 +18,12 @@ const App = () => {
     if (all) {
       dispatch(actions.setSelected(all));
     }
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [all]);
   return (
     <>
       <Route path='/' exact component={Dashboard} />
-      <Route path='/map' component={MapPage} />
+      <Route path='/map' exact component={MapPage} />
     </>
   );
 };

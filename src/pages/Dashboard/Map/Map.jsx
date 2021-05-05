@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { WorldMap } from 'react-svg-worldmap';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
+import MapHeader from './MapHeader';
 
 const SimpleJs = () => {
   const countries = useSelector((state) => state.countries);
@@ -40,53 +41,24 @@ const SimpleJs = () => {
   };
 
   return (
-    <div id='root'>
-      <Header>
-        Cases:
-        <DetailsContainer>
-          <Details color='#accddc' />
-          {'<50k'}
-        </DetailsContainer>
-        <DetailsContainer>
-          <Details color='#4A97B9' />
-          {'<100k'}
-        </DetailsContainer>
-        <DetailsContainer>
-          <Details color='#006491' />
-          {'>100k'}
-        </DetailsContainer>
-      </Header>
+    <Root id='root'>
+      <MapHeader />
       <WorldMap
         backgroundColor='var(--black)'
         borderColor='#fff'
-        size='responsive'
+        size={window.innerWidth < 600 ? 'sm' : 'lg'}
         data={mapData}
         styleFunction={stylingFunction}
       />
-    </div>
+    </Root>
   );
 };
 
-const Header = styled.div`
-  background-color: var(--black);
-  width: 100%;
-  padding: 2rem;
-  display: flex;
-  font-size: 1.3em;
-  font-weight: bold;
-`;
-const DetailsContainer = styled.div`
-  display: flex;
-  font-weight: normal;
-  align-items: center;
-  color: #b7b7b7;
-  font-size: 0.9em;
-`;
-const Details = styled.div`
-  width: 20px;
-  height: 20px;
-  margin: 0 0.5rem 0 1.3rem;
-  background-color: ${(props) => props.color};
+const Root = styled.div`
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+    margin: 0 auto;
+  }
 `;
 
 export default SimpleJs;

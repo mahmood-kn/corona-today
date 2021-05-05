@@ -13,10 +13,12 @@ const SelectList = () => {
 };
 
 const SelectContainer = styled.div`
-  width: 100%;
   background-color: var(--black);
   padding: 1rem;
   margin-top: 2rem;
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
 `;
 
 export default SelectList;

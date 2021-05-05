@@ -63,3 +63,7 @@ export const setLoading = () => ({
 export const setGraphLoading = () => ({
   type: types.SET_GRAPH_LOADING,
 });
+export const openSideMenu = (value) => ({
+  type: types.OPEN_SIDE_MENU,
+  payload: value,
+});

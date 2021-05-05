@@ -48,6 +48,12 @@ const Statistics = styled.div`
   justify-content: space-between;
   align-items: center;
   height: fit-content;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 `;
 
 const Confirmed = styled.div`
@@ -64,6 +70,9 @@ const ConfirmedB = styled.h2`
   color: #fff;
   font-weight: normal;
   font-size: 1.7em;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 1rem;
+  }
 `;
 const Death = styled.div`
   display: flex;
@@ -79,6 +88,9 @@ const DeathB = styled.h2`
   color: #fff;
   font-weight: normal;
   font-size: 1.7em;
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 1rem;
+  }
 `;
 const Recovered = styled.div`
   display: flex;

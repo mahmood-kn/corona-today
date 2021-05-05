@@ -57,6 +57,10 @@ const Pie = () => {
 };
 const Container = styled.div`
   margin: 0.5rem 0 2rem 0;
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+    height: 350px;
+  }
 `;
 
 const Title = styled.h4`
