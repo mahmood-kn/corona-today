@@ -29,7 +29,7 @@ const Navbar = () => {
 const NavbarParent = styled.div`
   background-color: var(--black);
   width: 100%;
-  height: 70px;
+  height: var(--navbarH);
 `;
 
 const Container = styled.div`

@@ -12,7 +12,6 @@ const DropDown = () => {
   const handleClickOutside = (e) => {
     if (ref.current && !ref.current.contains(e.target) && showDropDown) {
       dispatch(actions.setShowDropDown(false));
-      console.log('hi');
     }
   };
   useEffect(() => {

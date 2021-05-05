@@ -41,6 +41,7 @@ const StyledDropDownContent = styled.div.attrs((props) => ({
   display: ${(props) => (props.show ? 'block' : 'none')};
   position: absolute;
   background-color: #f6f6f6;
+  color: black;
   min-width: inherit;
   border: 1px solid #ddd;
   z-index: 3;

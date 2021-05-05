@@ -5,19 +5,11 @@ import Cards from './GlobaalCases/Cards';
 import SelectList from './GlobaalCases/SelectList';
 import CaseByCountry from './CaseByCountry/CaseByCountry';
 import Table from './Table/Table';
-import { useDispatch } from 'react-redux';
-import * as actions from '../../store/actions/mainAction';
+
 import Charts from './Charts/Charts';
 import Map from './Map/Map';
 
 const Dashboard = () => {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(actions.getAll());
-    dispatch(actions.getYesterday());
-    dispatch(actions.getCountries());
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <>
       <Navbar />

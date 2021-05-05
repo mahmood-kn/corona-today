@@ -1,20 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { numberWithCommas } from 'utils/funcs';
-import { useDispatch, useSelector } from 'react-redux';
-import * as actions from 'store/actions/mainAction';
+import { useSelector } from 'react-redux';
 
 const SelectListBody = () => {
-  const all = useSelector((state) => state.all);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (all) {
-      dispatch(actions.setSelected(all));
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [all]);
   const selectedData = useSelector((state) => state.selectedData);
   const loading = useSelector((state) => state.loading);
   return (
