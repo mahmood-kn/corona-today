@@ -23,6 +23,7 @@ const MapPageContainer = styled.div`
 const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 3fr;
+  background-color: var(--black);
 `;
 
 export default MapPage;

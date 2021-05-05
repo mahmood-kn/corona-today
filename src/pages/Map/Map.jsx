@@ -33,11 +33,15 @@ const SimpleJs = () => {
   const stylingFunction = (context) => {
     return {
       fill:
-        context.countryValue < 50000
-          ? '#ACCDDC'
+        context.countryValue < 10000
+          ? '#0E7272'
           : context.countryValue < 100000
-          ? '#4A97B9'
-          : '#006491',
+          ? '#52BA9A'
+          : context.countryValue < 1000000
+          ? '#F2972C'
+          : context.countryValue < 10000000
+          ? '#F04946'
+          : '#FF0000',
     };
   };
   const clickMap = (e, countryName, iso) => {
@@ -48,26 +52,11 @@ const SimpleJs = () => {
   };
   return (
     <Root id='root'>
-      <Header>
-        Cases:
-        <DetailsContainer>
-          <Details color='#accddc' />
-          {'<50k'}
-        </DetailsContainer>
-        <DetailsContainer>
-          <Details color='#4A97B9' />
-          {'<100k'}
-        </DetailsContainer>
-        <DetailsContainer>
-          <Details color='#006491' />
-          {'>100k'}
-        </DetailsContainer>
-      </Header>
       <WorldMap
         onClickFunction={clickMap}
         backgroundColor='var(--black)'
         borderColor='#fff'
-        size='responsive'
+        size='xl'
         data={mapData}
         styleFunction={stylingFunction}
       />
@@ -76,29 +65,8 @@ const SimpleJs = () => {
 };
 
 const Root = styled.div`
-  height: 100vh;
-`;
-
-const Header = styled.div`
   background-color: var(--black);
-  width: 100%;
-  padding: 2rem;
-  display: flex;
-  font-size: 1.3em;
-  font-weight: bold;
-`;
-const DetailsContainer = styled.div`
-  display: flex;
-  font-weight: normal;
-  align-items: center;
-  color: #b7b7b7;
-  font-size: 0.9em;
-`;
-const Details = styled.div`
-  width: 20px;
-  height: 20px;
-  margin: 0 0.5rem 0 1.3rem;
-  background-color: ${(props) => props.color};
+  margin-left: 6rem;
 `;
 
 export default SimpleJs;
