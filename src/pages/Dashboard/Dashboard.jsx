@@ -47,6 +47,9 @@ const CardsSection = styled.section`
   @media only screen and (max-width: 600px) {
     grid-template-columns: 1fr;
   }
+  @media only screen and (max-width: 1200px) {
+    grid-template-columns: 1fr;
+  }
 `;
 const TableSection = styled.section`
   margin-top: 5rem;
@@ -55,7 +58,7 @@ const TableSection = styled.section`
   grid-template-columns: 2fr 6fr;
   width: 100%;
   grid-gap: 1rem;
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width: 992px) {
     grid-template-columns: 1fr;
   }
 `;

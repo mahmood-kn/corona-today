@@ -44,11 +44,17 @@ const CardImg = styled.img`
   width: 40px;
   height: 100%;
   margin-right: 1rem;
+  @media only screen and (max-width: 300px) {
+    width: 20px;
+  }
 `;
 
 const CardContent = styled.h1`
   font-weight: bold;
   font-size: 1.6em;
+  @media only screen and (max-width: 300px) {
+    font-size: 1em;
+  }
 `;
 
 const Change = styled.span`
@@ -61,6 +67,9 @@ const CardHeader = styled.h3`
   font-size: 1em;
   white-space: nowrap;
   margin-bottom: 0.3rem;
+  @media only screen and (max-width: 300px) {
+    font-size: 1em;
+  }
 `;
 
 export default DetailsCard;

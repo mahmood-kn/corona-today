@@ -62,6 +62,9 @@ const Container = styled.div`
     width: 300px;
     height: 300px;
   }
+  @media only screen and (max-width: 300px) {
+    width: 220px;
+  }
 `;
 
 const Title = styled.h4`

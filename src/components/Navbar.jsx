@@ -61,6 +61,10 @@ const Logo = styled(Link)`
 const LogoImg = styled.img`
   max-width: 60px;
   height: 60px;
+  @media only screen and (max-width: 300px) {
+    max-width: 50px;
+    height: 50px;
+  }
 `;
 
 const LogoText = styled.h1`
@@ -68,6 +72,9 @@ const LogoText = styled.h1`
   color: #00c8ab;
   @media only screen and (max-width: 600px) {
     font-size: 1.5em;
+  }
+  @media only screen and (max-width: 300px) {
+    font-size: 1em;
   }
 `;
 

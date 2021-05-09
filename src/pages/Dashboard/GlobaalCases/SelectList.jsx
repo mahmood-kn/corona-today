@@ -16,8 +16,8 @@ const SelectContainer = styled.div`
   background-color: var(--black);
   padding: 1rem;
   margin-top: 2rem;
-  @media only screen and (max-width: 600px) {
-    width: 300px;
+  @media only screen and (max-width: 300px) {
+    width: 220px;
   }
 `;
 

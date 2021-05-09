@@ -46,7 +46,13 @@ const SimpleJs = () => {
       <WorldMap
         backgroundColor='var(--black)'
         borderColor='#fff'
-        size={window.innerWidth < 600 ? 'sm' : 'lg'}
+        size={
+          window.innerWidth < 600
+            ? 'sm'
+            : window.innerWidth > 1400
+            ? 'xl'
+            : 'lg'
+        }
         data={mapData}
         styleFunction={stylingFunction}
       />
@@ -55,9 +61,8 @@ const SimpleJs = () => {
 };
 
 const Root = styled.div`
-  @media only screen and (max-width: 600px) {
-    width: 300px;
-    margin: 0 auto;
+  @media only screen and (max-width: 300px) {
+    display: none;
   }
 `;
 

@@ -3,7 +3,7 @@ export function numberWithCommas(x) {
 }
 
 export const formatedDate = (miliseconds) => {
-  return `${new Date(miliseconds).getMonth()}/${new Date(
+  return `${new Date(miliseconds).getMonth() + 1}/${new Date(
     miliseconds
   ).getDate()}/${new Date(miliseconds).getFullYear()} at ${formatAMPM(
     new Date(miliseconds)

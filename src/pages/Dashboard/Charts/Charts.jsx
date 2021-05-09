@@ -40,5 +40,8 @@ const Container = styled.div`
     grid-template-columns: 1fr;
     text-align: center;
   }
+  @media only screen and (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
 `;
 export default Charts;

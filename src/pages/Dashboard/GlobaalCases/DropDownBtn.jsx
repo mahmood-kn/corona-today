@@ -46,6 +46,9 @@ const StyledDropDownBtn = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media only screen and (max-width: 300px) {
+    width: 150px;
+  }
 `;
 
 const Arrow = styled.span`

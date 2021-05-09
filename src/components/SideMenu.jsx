@@ -64,6 +64,9 @@ const StyledLink = styled(Link)`
   font-size: 1.5em;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  @media only screen and (max-width: 300px) {
+    font-size: 1em;
+  }
 `;
 
 const Links = styled.div`

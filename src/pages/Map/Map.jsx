@@ -56,7 +56,13 @@ const SimpleJs = () => {
         onClickFunction={clickMap}
         backgroundColor='var(--black)'
         borderColor='#fff'
-        size='xl'
+        size={
+          window.innerWidth > 1650
+            ? 'xxl'
+            : window.innerWidth > 1200
+            ? 'xl'
+            : 'lg'
+        }
         data={mapData}
         styleFunction={stylingFunction}
       />
