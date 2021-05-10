@@ -107,7 +107,8 @@ const Select = styled.select`
   color: #ccc;
   padding: 0.3rem;
   width: 150px;
-  border: none;
+  border: 1px solid #b7b7b7;
+  border-radius: 5px;
 
   & option {
     color: black;
