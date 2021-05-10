@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DropDown from '../Dashboard/GlobaalCases/DropDown';
+import DropDown from 'components/DropDownCountries/DropDown';
 import Detail from './Detail';
 import { useSelector } from 'react-redux';
 import { numberWithCommas } from 'utils/funcs';

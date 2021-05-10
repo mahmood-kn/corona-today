@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
-import Flag from '../GlobaalCases/Flag';
+import Flag from '../../../components/Flag';
 import Pagination from './Pagination';
 import * as actions from 'store/actions/mainAction';
 import Search from './Search';

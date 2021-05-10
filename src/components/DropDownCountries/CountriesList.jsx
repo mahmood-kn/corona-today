@@ -1,7 +1,7 @@
 import React from 'react';
 import Country from './Country';
 import WorldIcon from 'components/WorldIcon';
-import Flag from './Flag';
+import Flag from '../Flag';
 
 const CountriesList = ({ onClick, countries, loading }) => {
   return (

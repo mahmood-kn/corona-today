@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DropDown from './DropDown';
+import DropDown from 'components/DropDownCountries/DropDown';
 import { useSelector } from 'react-redux';
 
 const SelectListHead = () => {

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from 'store/actions/mainAction';
-import Flag from './Flag';
+import Flag from '../Flag';
 import WorldIcon from 'components/WorldIcon';
 
 const DropDownBtn = () => {
