@@ -1,6 +1,7 @@
 {
-  "name": "covid-19-website",
+  "name": "coronatoday",
   "version": "0.1.0",
+  "homepage": "https://mahmood-kn.github.io/covid-19-website",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -8,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
     "chart.js": "^3.2.1",
+    "gh-pages": "^3.1.0",
     "react": "^17.0.2",
     "react-content-loader": "^6.0.3",
     "react-dom": "^17.0.2",
