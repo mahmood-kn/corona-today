@@ -5,7 +5,6 @@ import Cards from './GlobaalCases/Cards';
 import SelectList from './GlobaalCases/SelectList';
 import CaseByCountry from './CaseByCountry/CaseByCountry';
 import Table from './Table/Table';
-
 import Charts from './Charts/Charts';
 import Map from './Map/Map';
 

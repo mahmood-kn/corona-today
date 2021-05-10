@@ -2,6 +2,7 @@ import React from 'react';
 import * as Styled from './SelectListBodyStyled';
 import { numberWithCommas } from 'utils/funcs';
 import { useSelector } from 'react-redux';
+import SelectSectionLoading from 'components/Loading/SelectSectionLoading';
 
 const SelectListBody = () => {
   const selectedData = useSelector((state) => state.selectedData);
@@ -14,7 +15,7 @@ const SelectListBody = () => {
           {!loading && selectedData !== null ? (
             numberWithCommas(selectedData?.cases)
           ) : (
-            <Styled.Loading>Loading...</Styled.Loading>
+            <SelectSectionLoading />
           )}
         </Styled.ConfirmedB>
       </Styled.Confirmed>
@@ -24,7 +25,7 @@ const SelectListBody = () => {
           {!loading && selectedData !== null ? (
             numberWithCommas(selectedData?.deaths)
           ) : (
-            <Styled.Loading>Loading...</Styled.Loading>
+            <SelectSectionLoading />
           )}
         </Styled.DeathB>
       </Styled.Death>
@@ -34,7 +35,7 @@ const SelectListBody = () => {
           {!loading && selectedData !== null ? (
             numberWithCommas(selectedData?.recovered)
           ) : (
-            <Styled.Loading>Loading...</Styled.Loading>
+            <SelectSectionLoading />
           )}
         </Styled.RecoveredB>
       </Styled.Recovered>

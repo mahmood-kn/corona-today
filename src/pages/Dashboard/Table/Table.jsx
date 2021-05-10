@@ -5,6 +5,7 @@ import Flag from '../../../components/Flag';
 import Pagination from './Pagination';
 import * as actions from 'store/actions/mainAction';
 import Search from './Search';
+import TableLoading from 'components/Loading/TableLoading';
 
 const Table = () => {
   const countries = useSelector((state) => state.countries);
@@ -50,31 +51,35 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {!loading && currentItems !== null
-            ? currentItems.map((c) => (
-                <tr key={c.country}>
-                  <RegionTd>
-                    <Flag src={c.countryInfo.flag} />
-                    {c.country}
-                  </RegionTd>
-                  <td>{c.cases}</td>
-                  <td>{c.todayCases > 0 ? `+${c.todayCases}` : '0'}</td>
-                  <td>{c.deaths}</td>
-                  <td>
-                    {(100 - ((c.cases - c.deaths) / c.cases) * 100).toFixed(2)}%
-                  </td>
-                  <td>{c.todayDeaths > 0 ? `+${c.todayDeaths}` : '0'}</td>
-                  <td>{c.recovered}</td>
-                  <td>
-                    {(100 - ((c.cases - c.recovered) / c.cases) * 100).toFixed(
-                      2
-                    )}
-                    %
-                  </td>
-                  <td>{c.active}</td>
-                </tr>
-              ))
-            : null}
+          {!loading && currentItems !== null ? (
+            currentItems.map((c) => (
+              <tr key={c.country}>
+                <RegionTd>
+                  <Flag src={c.countryInfo.flag} />
+                  {c.country}
+                </RegionTd>
+                <td>{c.cases}</td>
+                <td>{c.todayCases > 0 ? `+${c.todayCases}` : '0'}</td>
+                <td>{c.deaths}</td>
+                <td>
+                  {(100 - ((c.cases - c.deaths) / c.cases) * 100).toFixed(2)}%
+                </td>
+                <td>{c.todayDeaths > 0 ? `+${c.todayDeaths}` : '0'}</td>
+                <td>{c.recovered}</td>
+                <td>
+                  {(100 - ((c.cases - c.recovered) / c.cases) * 100).toFixed(2)}
+                  %
+                </td>
+                <td>{c.active}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan='9'>
+                <TableLoading />
+              </td>
+            </tr>
+          )}
         </tbody>
       </TableEl>
       <Pagination first={first} last={last} total={filteredTable?.length} />
@@ -113,6 +118,10 @@ const TableEl = styled.table`
     border-right: 1px solid #3f3e50;
     white-space: nowrap;
     padding: 1rem;
+  }
+
+  & tbody {
+    width: 100%;
   }
 `;
 

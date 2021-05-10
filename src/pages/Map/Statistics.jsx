@@ -4,15 +4,17 @@ import DropDown from 'components/DropDownCountries/DropDown';
 import Detail from './Detail';
 import { useSelector } from 'react-redux';
 import { numberWithCommas } from 'utils/funcs';
+import MapPageStatisticsLoading from 'components/Loading/MapPageStatisticsLoading';
 
 const Statistics = () => {
   const selectedData = useSelector((state) => state.selectedData);
+  const loading = useSelector((state) => state.loading);
   return (
     <Container>
       <DropDownContainer>
         <DropDown />
       </DropDownContainer>
-      {selectedData && (
+      {!loading && selectedData ? (
         <>
           <Detail
             heading='TOTAL CASES'
@@ -35,6 +37,8 @@ const Statistics = () => {
             value={numberWithCommas(selectedData.recovered)}
           />
         </>
+      ) : (
+        <MapPageStatisticsLoading />
       )}
     </Container>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
+import CaseByCountryLoading from 'components/Loading/CaseByCountryLoading';
 
 const CaseByCountry = () => {
   const countries = useSelector((state) => state.countries);
@@ -9,14 +10,16 @@ const CaseByCountry = () => {
     <Container>
       <Head>Cases by Country</Head>
       <Ul>
-        {!loading && countries !== null
-          ? countries.map((c) => (
-              <Li key={c.country}>
-                {c.country}
-                <span>{c.cases}</span>
-              </Li>
-            ))
-          : null}
+        {!loading && countries !== null ? (
+          countries.map((c) => (
+            <Li key={c.country}>
+              {c.country}
+              <span>{c.cases}</span>
+            </Li>
+          ))
+        ) : (
+          <CaseByCountryLoading />
+        )}
       </Ul>
     </Container>
   );

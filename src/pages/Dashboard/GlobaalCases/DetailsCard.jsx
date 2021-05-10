@@ -4,6 +4,7 @@ import redImg from 'assets/img/corona-icon-red.png';
 import greenImg from 'assets/img/corona-icon-green.png';
 import { numberWithCommas } from 'utils/funcs';
 import { useSelector } from 'react-redux';
+import CardLoading from 'components/Loading/CardLoading';
 
 const DetailsCard = ({ text, data, green, change }) => {
   const loading = useSelector((state) => state.loading);
@@ -22,7 +23,7 @@ const DetailsCard = ({ text, data, green, change }) => {
             </Change>
           </CardContent>
         ) : (
-          <h3>Loading...</h3>
+          <CardLoading />
         )}
       </div>
     </Card>
