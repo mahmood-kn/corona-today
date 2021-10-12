@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 import * as actions from 'store/actions/mainAction';
 import Link from './Link';
+import SwInstallBtn from 'components/SwInstallBtn';
 
 const SideMenu = () => {
   const openSideMenu = useSelector((state) => state.openSideMenu);
@@ -32,6 +33,7 @@ const SideMenu = () => {
       <Links>
         <StyledLink to='/'>Dashboard</StyledLink>
         <StyledLink to='/map'>Map</StyledLink>
+        {/* <SwInstallBtn /> */}
       </Links>
     </SideContainer>
   );

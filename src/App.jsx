@@ -20,6 +20,7 @@ const App = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [all]);
+
   return (
     <>
       <Route path='/' exact component={Dashboard} />

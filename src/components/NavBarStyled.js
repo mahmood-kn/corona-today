@@ -15,7 +15,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1040px) {
     justify-content: center;
   }
 `;
@@ -47,7 +47,7 @@ export const LogoText = styled.h1`
 `;
 
 export const Links = styled.div`
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1040px) {
     display: none;
   }
 `;
@@ -56,7 +56,7 @@ export const Updated = styled.span`
   font-style: italic;
   color: #fff;
   font-size: 0.9em;
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1040px) {
     display: none;
   }
 `;

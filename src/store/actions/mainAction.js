@@ -67,3 +67,8 @@ export const openSideMenu = (value) => ({
   type: types.OPEN_SIDE_MENU,
   payload: value,
 });
+
+export const setDeferredPrompt = (event) => ({
+  type: types.SET_LINEAR_VIEW_DATA,
+  payload: event,
+});

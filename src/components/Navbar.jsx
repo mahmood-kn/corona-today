@@ -10,6 +10,7 @@ import {
   Links,
   Updated,
 } from './NavBarStyled';
+import SwInstallBtn from 'components/SwInstallBtn';
 
 import { useSelector } from 'react-redux';
 import { formatedDate } from 'utils/funcs';
@@ -33,6 +34,7 @@ const Navbar = () => {
           <Links>
             <NavLink to='/'>Dashboard</NavLink>
             <NavLink to='/map'>Map</NavLink>
+            {/* <SwInstallBtn /> */}
           </Links>
         </Container>
       </NavbarParent>

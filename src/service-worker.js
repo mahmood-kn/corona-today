@@ -11,7 +11,11 @@ import { clientsClaim } from 'workbox-core';
 import { ExpirationPlugin } from 'workbox-expiration';
 import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
-import { StaleWhileRevalidate } from 'workbox-strategies';
+import {
+  StaleWhileRevalidate,
+  CacheFirst,
+  NetworkFirst,
+} from 'workbox-strategies';
 
 clientsClaim();
 
@@ -20,7 +24,7 @@ clientsClaim();
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
-
+precacheAndRoute('/icons/*');
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
@@ -71,3 +75,16 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+registerRoute(
+  'https://disease.sh/assets/img/flags/:flag',
+  new CacheFirst({
+    cacheName: 'flags',
+  })
+);
+
+registerRoute(
+  /.*(?:fontawesome)\.com.*$/,
+  new CacheFirst({
+    cacheName: 'data',
+  })
+);

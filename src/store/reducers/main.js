@@ -90,6 +90,11 @@ const mainReducer = (state, action) => {
         ...state,
         openSideMenu: action.payload,
       };
+    case types.DEFERRED_PROMPT:
+      return {
+        ...state,
+        deferredPrompt: action.payload,
+      };
     default:
       return state;
   }

@@ -30,7 +30,7 @@ const Btn = styled.button`
   cursor: pointer;
   color: #fff;
   border: none;
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 1040px) {
     display: block;
   }
 `;
