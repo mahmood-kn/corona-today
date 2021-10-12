@@ -33,7 +33,7 @@ const SideMenu = () => {
       <Links>
         <StyledLink to='/'>Dashboard</StyledLink>
         <StyledLink to='/map'>Map</StyledLink>
-        {/* <SwInstallBtn /> */}
+        <SwInstallBtn />
       </Links>
     </SideContainer>
   );

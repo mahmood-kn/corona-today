@@ -24,7 +24,7 @@ clientsClaim();
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
-precacheAndRoute('/icons/*');
+// precacheAndRoute('/icons/*');
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
 // https://developers.google.com/web/fundamentals/architecture/app-shell
@@ -82,9 +82,15 @@ registerRoute(
   })
 );
 
-registerRoute(
-  /.*(?:fontawesome)\.com.*$/,
-  new CacheFirst({
-    cacheName: 'data',
-  })
-);
+// registerRoute(
+//   /.*(?:fontawesome)\.com.*$/,
+//   new CacheFirst({
+//     cacheName: 'data',
+//   })
+// );
+// registerRoute(
+//   'https://disease.sh/v3/covid-19/:data',
+//   new CacheFirst({
+//     cacheName: 'data',
+//   })
+// );

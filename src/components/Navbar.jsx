@@ -34,7 +34,7 @@ const Navbar = () => {
           <Links>
             <NavLink to='/'>Dashboard</NavLink>
             <NavLink to='/map'>Map</NavLink>
-            {/* <SwInstallBtn /> */}
+            <SwInstallBtn />
           </Links>
         </Container>
       </NavbarParent>
