@@ -76,21 +76,28 @@ self.addEventListener('message', (event) => {
 
 // Any other custom service worker logic can go here.
 registerRoute(
-  'https://disease.sh/assets/img/flags/:flag',
+  ({ url }) => url.origin === 'https://cdnjs.cloudflare.com',
   new CacheFirst({
+    cacheName: 'fontawesome',
+  })
+);
+registerRoute(
+  ({ url }) => url.href.includes('https://fonts.googleapis.com'),
+  new StaleWhileRevalidate({
+    cacheName: 'google-fonts',
+  })
+);
+
+registerRoute(
+  ({ url }) => url.pathname.includes('/assets/img/flags/'),
+  new StaleWhileRevalidate({
     cacheName: 'flags',
   })
 );
 
-// registerRoute(
-//   /.*(?:fontawesome)\.com.*$/,
-//   new CacheFirst({
-//     cacheName: 'data',
-//   })
-// );
-// registerRoute(
-//   'https://disease.sh/v3/covid-19/:data',
-//   new CacheFirst({
-//     cacheName: 'data',
-//   })
-// );
+registerRoute(
+  ({ url }) => url.pathname.includes('/v3/covid-19/'),
+  new StaleWhileRevalidate({
+    cacheName: 'data',
+  })
+);

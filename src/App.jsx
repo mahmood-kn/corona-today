@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Dashboard from './pages/Dashboard/Dashboard';
 import MapPage from './pages/Map/MapPage';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import * as actions from 'store/actions/mainAction';
 
@@ -22,10 +22,11 @@ const App = () => {
   }, [all]);
 
   return (
-    <>
+    <Switch>
       <Route path='/' exact component={Dashboard} />
       <Route path='/map' exact component={MapPage} />
-    </>
+      <Route path='*' component={Dashboard} />
+    </Switch>
   );
 };
 
