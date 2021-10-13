@@ -16,10 +16,15 @@
       "src": "icons/manifest-icon-144.png",
       "sizes": "144x144",
       "type": "image/png"
+    },
+    {
+      "src": "icons/apple-icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
   "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "background_color": "#292833",
   "display": "standalone"
 }
