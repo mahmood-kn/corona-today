@@ -13,7 +13,7 @@ This is a website for view numbers, graphs and maps showing COVID-19 situation a
 - Chart.js
 - React Svg Worldmap
 - React Content Loader
-
+- Progressive Web Application (PWA)
 ## API
 
 [disease.sh](https://disease.sh/)
